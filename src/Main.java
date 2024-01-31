@@ -18,16 +18,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<File> fileList = new ArrayList<>();
-        fileList.add(new File("src/Harry Potter and the Philosophers Stone.txt"));
-        fileList.add(new File("src/Harry Potter and the Chamber of Secrets.txt"));
-        fileList.add(new File("src/Harry Potter And The Prisoner Of Azkaban.txt"));
-        fileList.add(new File("src/Harry Potter and the goblet of fire.txt"));
-        fileList.add(new File("src/Harry Potter and the Order of the Phoenix.txt"));
-        fileList.add(new File("src/Harry Potter and the Half Blood Prince.txt"));
-        fileList.add(new File("src/Harry Potter And The Deathly Hallows.txt"));
-        fileList.add(new File("src/Tale of Two Cities.txt"));
-        fileList.add(new File("src/Hobbit.txt"));
-        fileList.add(new File("src/The fellowship of the ring.txt"));
+        fileList.add(new File("data/Harry Potter and the Philosophers Stone.txt"));
+        fileList.add(new File("data/Harry Potter and the Chamber of Secrets.txt"));
+        fileList.add(new File("data/Harry Potter And The Prisoner Of Azkaban.txt"));
+        fileList.add(new File("data/Harry Potter and the goblet of fire.txt"));
+        fileList.add(new File("data/Harry Potter and the Order of the Phoenix.txt"));
+        fileList.add(new File("data/Harry Potter and the Half Blood Prince.txt"));
+        fileList.add(new File("data/Harry Potter And The Deathly Hallows.txt"));
+        fileList.add(new File("data/Tale of Two Cities.txt"));
+        fileList.add(new File("data/Hobbit.txt"));
+        fileList.add(new File("data/The fellowship of the ring.txt"));
         Dictionary dictionary = new Dictionary(fileList);
         dictionary.analyzeCollection();
         System.out.println(dictionary);
