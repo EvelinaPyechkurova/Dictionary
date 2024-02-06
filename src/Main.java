@@ -13,29 +13,28 @@ Write a program that builds a dictionary of terms based on a given collection of
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        File data = new File("data");
         List<File> fileList = new ArrayList<>();
-        fileList.add(new File("data/Harry Potter and the Philosophers Stone.txt"));
-        fileList.add(new File("data/Harry Potter and the Chamber of Secrets.txt"));
-        fileList.add(new File("data/Harry Potter And The Prisoner Of Azkaban.txt"));
-        fileList.add(new File("data/Harry Potter and the goblet of fire.txt"));
-        fileList.add(new File("data/Harry Potter and the Order of the Phoenix.txt"));
-        fileList.add(new File("data/Harry Potter and the Half Blood Prince.txt"));
-        fileList.add(new File("data/Harry Potter And The Deathly Hallows.txt"));
-        fileList.add(new File("data/Tale of Two Cities.txt"));
-        fileList.add(new File("data/Hobbit.txt"));
-        fileList.add(new File("data/The fellowship of the ring.txt"));
-        Dictionary dictionary = new Dictionary(fileList);
-        dictionary.analyzeCollection();
-        System.out.println(dictionary);
 
-        System.out.println("Total size of collection is " + dictionary.getCollectionSize() + " KB");
-        System.out.println("Number of words in collection: " + dictionary.getWordCount());
-        System.out.println("Number of unique words in collection: " + dictionary.getUniqueWordsCount());
+        if(data.exists() && data.isDirectory()) {
+            File[] dataFiles = data.listFiles();
+            if(dataFiles != null)
+                fileList.addAll(Arrays.asList(dataFiles));
 
-        dictionary.saveResultsToFile("Dictionary results");
+            Dictionary dictionary = new Dictionary(fileList);
+            dictionary.analyzeCollection();
+            System.out.println(dictionary);
+
+            System.out.println("Total size of collection is " + dictionary.getCollectionSize() + " KB");
+            System.out.println("Number of words in collection: " + dictionary.getWordCount());
+            System.out.println("Number of unique words in collection: " + dictionary.getUniqueWordsCount());
+
+            dictionary.saveResultsToFile("Dictionary results");
+        }
     }
 }
