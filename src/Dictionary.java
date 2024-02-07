@@ -50,11 +50,11 @@ public class Dictionary {
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
-            String delimiters = ",;:()|.!?\"”“‘‘—’'\f1234567890/&*- ";
+            String delimiters = ",;:()|.!?\"”“‘‘—’'\f1234567890/&*-\\[]{}_` ";
             while((line = reader.readLine()) != null){
                 tokenizer = new StringTokenizer(line, delimiters);
                 while (tokenizer.hasMoreTokens())
-                    wordsList.add(tokenizer.nextToken());
+                    wordsList.add(tokenizer.nextToken().toLowerCase(Locale.ROOT));
             }
             calculateFileSizeInKB();
         }catch(IOException ex){
